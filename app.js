@@ -13,6 +13,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 require('dotenv').config();
 
 const app = express();
+app.use(express.static('public'))
 
 const client = new Client({
     puppeteer: { headless: true },
