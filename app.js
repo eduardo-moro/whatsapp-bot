@@ -3,7 +3,7 @@ const express = require('express');
 const fs = require('fs');
 const createError = require('http-errors');
 const morgan = require('morgan');
-const { Client, LocalAuth } = require('whatsapp-web.js');
+const { Client, NoAuth } = require('whatsapp-web.js');
 
 const qrcode = require('qrcode-terminal')
 const bodyParser = require('body-parser')
@@ -17,7 +17,7 @@ app.use(express.static('public'))
 
 const client = new Client({
     puppeteer: { headless: true },
-    authStrategy: new LocalAuth(),
+    authStrategy: new NoAuth(),
 });
 
 client.initialize();
